@@ -14,7 +14,6 @@ C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotNetcore_for_selfweb\bin\Debu
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotNetcore_for_selfweb\bin\Debug\netcoreapp2.0\dotNetcore_for_selfweb.runtimeconfig.dev.json
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotNetcore_for_selfweb\bin\Debug\netcoreapp2.0\dotNetcore_for_selfweb.dll
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotNetcore_for_selfweb\bin\Debug\netcoreapp2.0\dotNetcore_for_selfweb.pdb
-C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotNetcore_for_selfweb\obj\Debug\netcoreapp2.0\dotNetcore_for_selfweb.csprojResolveAssemblyReference.cache
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotNetcore_for_selfweb\obj\Debug\netcoreapp2.0\dotNetcore_for_selfweb.csproj.CoreCompileInputs.cache
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotNetcore_for_selfweb\obj\Debug\netcoreapp2.0\dotNetcore_for_selfweb.AssemblyInfoInputs.cache
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotNetcore_for_selfweb\obj\Debug\netcoreapp2.0\dotNetcore_for_selfweb.AssemblyInfo.cs
