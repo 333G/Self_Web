@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using dotNetcore_for_selfweb.Models;
 
 namespace dotNetcore_for_selfweb
 {
@@ -22,6 +24,9 @@ namespace dotNetcore_for_selfweb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<dotNetcore_for_selfwebContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("dotNetcore_for_selfwebContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +48,7 @@ namespace dotNetcore_for_selfweb
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=index_self}/{id?}");
             });
         }
     }
