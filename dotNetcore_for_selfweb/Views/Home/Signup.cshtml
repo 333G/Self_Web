@@ -35,7 +35,7 @@
         //postData["F_Description"] = editor.$txt.html();//取备注信息
         $.ajax({   
             type:"GET",           
-            url: "/Addcount.py",
+            url: "/UserInfoModelsController/Create",
             data: postData ,
             dataType:"json",
             success: function (data) {
