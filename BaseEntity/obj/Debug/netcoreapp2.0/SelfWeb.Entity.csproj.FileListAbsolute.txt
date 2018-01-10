@@ -1,0 +1,9 @@
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\bin\Debug\netcoreapp2.0\SelfWeb.Entity.deps.json
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\bin\Debug\netcoreapp2.0\SelfWeb.Entity.dll
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\bin\Debug\netcoreapp2.0\SelfWeb.Entity.pdb
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\obj\Debug\netcoreapp2.0\SelfWeb.Entity.csprojResolveAssemblyReference.cache
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\obj\Debug\netcoreapp2.0\SelfWeb.Entity.csproj.CoreCompileInputs.cache
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\obj\Debug\netcoreapp2.0\SelfWeb.Entity.AssemblyInfoInputs.cache
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\obj\Debug\netcoreapp2.0\SelfWeb.Entity.AssemblyInfo.cs
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\obj\Debug\netcoreapp2.0\SelfWeb.Entity.dll
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\obj\Debug\netcoreapp2.0\SelfWeb.Entity.pdb

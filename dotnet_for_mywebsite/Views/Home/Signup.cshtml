@@ -1,0 +1,171 @@
+﻿<html>
+	<head>
+            <meta charset="utf-8" />
+            <link rel="stylesheet" href="css/main.css" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <a>这里是一个注册页面<strong>【缺少美工】</strong></a>
+    </head>
+    	<!-- Scripts -->
+	<script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.scrolly.min.js"></script>
+    <script src="js/jquery.scrollzer.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="js/main.js"></script>
+
+	<script scr="">
+       function submitForm() {
+           if (document.getElementById("F_UserId").value == "" || document.getElementById("F_UserName").value == "" || document.getElementById("F_Psd").value=="")
+        {
+            alert("请输入有效值哦");
+            return false;
+        }
+           if (document.getElementById("F_Psd").value!=document.getElementById("F_RePsw").value)
+        {
+            alert("两次输入的密码不一致！请确认。");
+            return false;
+        }
+           //alert("你再怎么提交也没有用哇qwq");
+           var postData = $("#form1").serialize();
+           //alert(postData);
+           alert(JSON.stringify(postData));
+        //postData["F_Description"] = editor.$txt.html();//取备注信息
+        $.ajax({   
+            type:"GET",           
+            url: "/UserInfoModelsController/Create",
+            data: postData ,
+            dataType:"json",
+            success: function (data) {
+                alert(data);
+                alert("信息已经提交，3G大人正在审核......或许，可以加QQ去骚扰他给他动力？");
+
+                $.currentWindow().$("#form1").trigger("reloadForm");
+            },
+            error:function(XMLHttpRequest, textStatus, errorThrown) {  
+                alert(XMLHttpRequest.status + " || " + XMLHttpRequest.readyState + " || " + textStatus);  
+                        }  
+            
+           })
+
+        
+    }
+		
+
+
+//收集表单数据为一个数组
+$.request = function (name) {
+    var search = location.search.slice(1);
+    var arr = search.split("&");
+    for (var i = 0; i < arr.length; i++) {
+        var ar = arr[i].split("=");
+        if (ar[0] == name) {
+            if (unescape(ar[1]) == 'undefined') {
+                return "";
+            } else {
+                return unescape(ar[1]);
+            }
+        }
+    }
+    return "";
+}
+
+$.fn.formSerialize = function (formdate) {
+    var element = $(this);
+    if (!!formdate) {
+        for (var key in formdate) {
+            var $id = element.find('#' + key);
+            var value = $.trim(formdate[key]).replace(/&nbsp;/g, '');
+            var type = $id.attr('type');
+            if ($id.hasClass("select2-hidden-accessible")) {
+                type = "select";
+            }
+            switch (type) {
+                case "checkbox":
+                    if (value == "true") {
+                        $id.attr("checked", 'checked');
+                    } else {
+                        $id.removeAttr("checked");
+                    }
+                    break;
+                case "select":
+                    $id.val(value).trigger("change");
+                    break;
+                default:
+                    $id.val(value);
+                    break;
+            }
+        };
+        return false;
+    }
+    var postdata = {};
+    element.find('input,select,textarea').each(function (r) {
+        var $this = $(this);
+        var id = $this.attr('id');
+        var type = $this.attr('type');
+        switch (type) {
+            case "checkbox":
+                postdata[id] = $this.is(":checked");
+                break;
+            default:
+                var value = $this.val() == "" ? "&nbsp;" : $this.val();
+                if (!$.request("keyValue")) {
+                    value = value.replace(/&nbsp;/g, '');
+                }
+                postdata[id] = value;
+                break;
+        }
+    });
+    if ($('[name=__RequestVerificationToken]').length > 0) {
+        postdata["__RequestVerificationToken"] = $('[name=__RequestVerificationToken]').val();
+    }
+    return postdata;
+};
+    </script>
+
+    <body>
+            <form id="form1">
+             
+                <div style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+                       
+                    <div style="margin-right: 30px;">
+                    
+                        <h2>透露一下你的信息吧=w=</h2>
+                    
+                        <table class="form">  
+                                <tr>
+                                        <th class="formTitle">用户名</th>
+                                        <td class="formValue">
+                                            <input id="F_UserId" name="F_UserId" type="text"  placeholder="请输入用户名~" />
+                                        </td>
+                                        <th class="formTitle">密码</th>
+                                        <td class="formValue">
+                                                <input id="F_Psd" name="F_Psd" type="password"  placeholder="请输入密码~" />     
+                                       </td>
+                                    
+                                </tr> 
+                                <tr>
+                                        <th class="formTitle">昵称</th>
+                                        <td class="formValue">
+                                            <input id="F_UserName" name="F_UserName" type="text"  placeholder="请输入昵称~" />
+                                        </td>
+                                        <th class="formTitle">确认密码</th>
+                                        <td class="formValue">
+                                                <input id="F_RePsw" name="F_RePsw" type="password" placeholder="请再次输入密码~" />     
+                                       </td>
+                                </tr>
+                                <th class="formTitle">emmm</th>
+                                <td class="formValue">
+                                        <textarea id="F_Remark" name="F_Remark" rows="5" cols="21" style="resize: none;" placeholder="随便写点啥吧，别超过200字哦" ></textarea>     
+                                </td>
+                        </table>
+                    </div>
+                </div>
+            </form>
+            <div class="btn-group" style="margin-left:1px;margin-bottom: 115px;">
+                    <a id="NU-edit" style="margin-left:1px;margin-bottom: 60px;position:absolute;left:80px;top:560px;" authorize="yes" onclick="submitForm()"><i class="fa fa-Edit"></i>提交</a> 
+                </div>
+    </body>
+    <h2>=======================Under construction=======================</h2>
+</html>

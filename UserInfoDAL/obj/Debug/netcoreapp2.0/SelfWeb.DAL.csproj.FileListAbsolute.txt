@@ -1,0 +1,11 @@
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\UserInfoDAL\bin\Debug\netcoreapp2.0\SelfWeb.DAL.deps.json
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\UserInfoDAL\bin\Debug\netcoreapp2.0\SelfWeb.DAL.dll
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\UserInfoDAL\bin\Debug\netcoreapp2.0\SelfWeb.DAL.pdb
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\UserInfoDAL\obj\Debug\netcoreapp2.0\SelfWeb.DAL.csprojResolveAssemblyReference.cache
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\UserInfoDAL\obj\Debug\netcoreapp2.0\SelfWeb.DAL.csproj.CoreCompileInputs.cache
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\UserInfoDAL\obj\Debug\netcoreapp2.0\SelfWeb.DAL.AssemblyInfoInputs.cache
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\UserInfoDAL\obj\Debug\netcoreapp2.0\SelfWeb.DAL.AssemblyInfo.cs
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\UserInfoDAL\obj\Debug\netcoreapp2.0\SelfWeb.DAL.dll
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\UserInfoDAL\obj\Debug\netcoreapp2.0\SelfWeb.DAL.pdb
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\UserInfoDAL\bin\Debug\netcoreapp2.0\SelfWeb.Entity.dll
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\UserInfoDAL\bin\Debug\netcoreapp2.0\SelfWeb.Entity.pdb

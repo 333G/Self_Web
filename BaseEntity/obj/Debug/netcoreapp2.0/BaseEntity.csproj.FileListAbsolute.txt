@@ -1,0 +1,9 @@
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\bin\Debug\netcoreapp2.0\BaseEntity.deps.json
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\bin\Debug\netcoreapp2.0\BaseEntity.dll
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\bin\Debug\netcoreapp2.0\BaseEntity.pdb
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\obj\Debug\netcoreapp2.0\BaseEntity.csproj.CoreCompileInputs.cache
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\obj\Debug\netcoreapp2.0\BaseEntity.AssemblyInfoInputs.cache
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\obj\Debug\netcoreapp2.0\BaseEntity.AssemblyInfo.cs
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\obj\Debug\netcoreapp2.0\BaseEntity.dll
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\obj\Debug\netcoreapp2.0\BaseEntity.pdb
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\BaseEntity\obj\Debug\netcoreapp2.0\BaseEntity.csprojResolveAssemblyReference.cache
