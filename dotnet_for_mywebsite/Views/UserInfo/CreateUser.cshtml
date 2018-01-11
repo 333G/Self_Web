@@ -1,74 +1,167 @@
 ﻿@model dotnet_for_mywebsite.Models.UserModel
+<!-- Scripts -->
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.scrolly.min.js"></script>
+<script src="js/jquery.scrollzer.min.js"></script>
+<script src="js/skel.min.js"></script>
+<script src="js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="js/main.js"></script>
+<script scr="">
+    function submitForm() {
+        if (document.getElementById("F_UserId").value == "" || document.getElementById("F_UserName").value == "" || document.getElementById("F_Psd").value == "") {
+            alert("请输入有效值哦");
+            return false;
+        }
+        if (document.getElementById("F_Psd").value != document.getElementById("F_RePsw").value) {
+            alert("两次输入的密码不一致！请确认。");
+            return false;
+        }
+        //alert("你再怎么提交也没有用哇qwq");
+        var postData = $("#form1").serialize();
+        //alert(postData);
+        alert(JSON.stringify(postData));
+        //postData["F_Description"] = editor.$txt.html();//取备注信息
+        $.ajax({
+            type: "GET",
+            url: "/UserInfoController/CreateUser",
+            data: postData,
+            dataType: "json",
+            success: function (data) {
+                alert(data);
+                if (data["Message"] == "Success")
+                    alert("信息已经提交，3G大人正在审核......或许，可以加QQ去骚扰他给他动力？");
+                else
+                    alert("OPS，出了点错误" + data["Message"]);
 
-<h4>UserModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CreateUser">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="F_UserId" class="control-label"></label>
-                <input asp-for="F_UserId" class="form-control" />
-                <span asp-validation-for="F_UserId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="F_UserName" class="control-label"></label>
-                <input asp-for="F_UserName" class="form-control" />
-                <span asp-validation-for="F_UserName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="F_Psd" class="control-label"></label>
-                <input asp-for="F_Psd" class="form-control" />
-                <span asp-validation-for="F_Psd" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="F_Contact" class="control-label"></label>
-                <input asp-for="F_Contact" class="form-control" />
-                <span asp-validation-for="F_Contact" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="F_Mail" class="control-label"></label>
-                <input asp-for="F_Mail" class="form-control" />
-                <span asp-validation-for="F_Mail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="F_ID" class="control-label"></label>
-                <input asp-for="F_ID" class="form-control" />
-                <span asp-validation-for="F_ID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RowVersion" class="control-label"></label>
-                <input asp-for="RowVersion" class="form-control" />
-                <span asp-validation-for="RowVersion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreateTime" class="control-label"></label>
-                <input asp-for="CreateTime" class="form-control" />
-                <span asp-validation-for="CreateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdateTime" class="control-label"></label>
-                <input asp-for="UpdateTime" class="form-control" />
-                <span asp-validation-for="UpdateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="State" class="control-label"></label>
-                <input asp-for="State" class="form-control" />
-                <span asp-validation-for="State" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+                $.currentWindow().$("#form1").trigger("reloadForm");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status + " || " + XMLHttpRequest.readyState + " || " + textStatus);
+            }
+
+        })
+
+
+    }
+
+
+
+    //收集表单数据为一个数组
+    $.request = function (name) {
+        var search = location.search.slice(1);
+        var arr = search.split("&");
+        for (var i = 0; i < arr.length; i++) {
+            var ar = arr[i].split("=");
+            if (ar[0] == name) {
+                if (unescape(ar[1]) == 'undefined') {
+                    return "";
+                } else {
+                    return unescape(ar[1]);
+                }
+            }
+        }
+        return "";
+    }
+    var formdate = $("#form1").value();
+    $.fn.formSerialize = function (formdate) {
+        var element = $(this);
+        if (!!formdate) {
+            for (var key in formdate) {
+                var $id = element.find('#' + key);
+                var value = $.trim(formdate[key]).replace(/&nbsp;/g, '');
+                var type = $id.attr('type');
+                if ($id.hasClass("select2-hidden-accessible")) {
+                    type = "select";
+                }
+                switch (type) {
+                    case "checkbox":
+                        if (value == "true") {
+                            $id.attr("checked", 'checked');
+                        } else {
+                            $id.removeAttr("checked");
+                        }
+                        break;
+                    case "select":
+                        $id.val(value).trigger("change");
+                        break;
+                    default:
+                        $id.val(value);
+                        break;
+                }
+            };
+            return false;
+        }
+        var postdata = {};
+        element.find('input,select,textarea').each(function (r) {
+            var $this = $(this);
+            var id = $this.attr('id');
+            var type = $this.attr('type');
+            switch (type) {
+                case "checkbox":
+                    postdata[id] = $this.is(":checked");
+                    break;
+                default:
+                    var value = $this.val() == "" ? "&nbsp;" : $this.val();
+                    if (!$.request("keyValue")) {
+                        value = value.replace(/&nbsp;/g, '');
+                    }
+                    postdata[id] = value;
+                    break;
+            }
+        });
+        if ($('[name=__RequestVerificationToken]').length > 0) {
+            postdata["__RequestVerificationToken"] = $('[name=__RequestVerificationToken]').val();
+        }
+        return postdata;
+    };
+</script>
+<h4>创建新用户（其实也就让发发消息）</h4>
+<body>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form id="form1">
+                <span style="text-decoration:line-through;">透露一下你的信息吧</span>
+                <div class="form-group">
+                    <label asp-for="F_UserId" class="control-label"></label>
+                    <input id="F_UserId" asp-for="F_UserId" class="form-control" />
+                    <span asp-validation-for="F_UserId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="F_UserName" class="control-label"></label>
+                    <input id="F_UserName" asp-for="F_UserName" class="form-control" />
+                    <span asp-validation-for="F_UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="F_Psd" class="control-label">输入密码</label>
+                    <input id="F_Psd" asp-for="F_Psd" class="form-control" />
+                    <span asp-validation-for="F_Psd" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">确认密码</label>
+                    <input id="F_RePsw" class="form-control" />
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="F_Contact" class="control-label"></label>
+                    <input id="F_Contact" asp-for="F_Contact" class="form-control" />
+                    <span asp-validation-for="F_Contact" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="F_Mail" class="control-label"></label>
+                    <input id="F_Mail" asp-for="F_Mail" class="form-control" />
+                    <span asp-validation-for="F_Mail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="button" value="Create" class="btn btn-default" onclick="submitForm()" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>

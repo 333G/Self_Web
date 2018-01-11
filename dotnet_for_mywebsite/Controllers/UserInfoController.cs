@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using dotNetcore_for_selfweb.Entity;
+using SelfWeb.DAL;
+using SelfWeb.DAL.UserInfoDAL;
 
 namespace dotnet_for_mywebsite.Controllers
 {
@@ -15,7 +18,7 @@ namespace dotnet_for_mywebsite.Controllers
             return View();
         }
 
-        // GET: UserInfo/Details/5
+        // GET: UserInfo/Details
         public ActionResult Details(int id)
         {
             return View();
@@ -30,17 +33,22 @@ namespace dotnet_for_mywebsite.Controllers
         // POST: UserInfo/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateUser(IFormCollection collection)
+        public ActionResult CreateUser(UserInfoEntity collection)
         {
+
+            // TODO: Add insert logic here
             try
             {
-                // TODO: Add insert logic here
+                if (UserInfoDAL.Instance.Get(collection.F_UserId) != null)
+                    return Content("Warning", "这个用户名已经注册啦qwq，请换一个吧");
 
-                return RedirectToAction(nameof(Index));
+                var info = UserInfoDAL.Instance.Create(collection);
+                return Content("Success", info.ToString());
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                SerializableError error = new SerializableError();
+                return Content("Error", ex.ToString());
             }
         }
 
