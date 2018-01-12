@@ -1,25 +1,33 @@
 ﻿@model dotnet_for_mywebsite.Models.UserModel
 <!-- Scripts -->
-<script src="js/jquery-1.8.3.min.js"></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.scrolly.min.js"></script>
-<script src="js/jquery.scrollzer.min.js"></script>
-<script src="js/skel.min.js"></script>
-<script src="js/util.js"></script>
+<script src="~/js/jquery-1.8.3.min.js"></script>
+<script src="~/js/jquery.min.js"></script>
+<script src="~/js/jquery.scrolly.min.js"></script>
+<script src="~/js/jquery.scrollzer.min.js"></script>
+<script src="~/js/skel.min.js"></script>
+<script src="~/js/util.js"></script>
+<script src="~/js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="~/css/sweetalert.css">
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="js/main.js"></script>
+<script src="~/js/main.js"></script>
 <script scr="">
+    swal({
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "确定",
+        closeOnConfirm: true
+    },
     function submitForm() {
         if (document.getElementById("F_UserId").value == "" || document.getElementById("F_UserName").value == "" || document.getElementById("F_Psd").value == "") {
-            alert("请输入有效值哦");
+            swal("输入的值有误，请检查","请输入有效值哦","warning");
             return false;
         }
         if (document.getElementById("F_Psd").value != document.getElementById("F_RePsw").value) {
-            alert("两次输入的密码不一致！请确认。");
+            swal("两次输入的密码不一致！","请确认,并且重新输入！","error");
             return false;
         }
         //alert("你再怎么提交也没有用哇qwq");
-        var postData = $("#form1").serialize();
+        var postData = $("#form1").serializeArray();
         //alert(postData);
         alert(JSON.stringify(postData));
         //postData["F_Description"] = editor.$txt.html();//取备注信息
@@ -27,11 +35,15 @@
             type: "GET",
             url: "/UserInfoController/CreateUser",
             data: postData,
-            dataType: "json",
             success: function (data) {
                 alert(data);
+                alert(JSON.stringify(data));
                 if (data["Message"] == "Success")
+                {
                     alert("信息已经提交，3G大人正在审核......或许，可以加QQ去骚扰他给他动力？");
+
+                }
+
                 else
                     alert("OPS，出了点错误" + data["Message"]);
 

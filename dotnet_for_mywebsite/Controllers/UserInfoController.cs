@@ -33,16 +33,16 @@ namespace dotnet_for_mywebsite.Controllers
         // POST: UserInfo/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateUser(UserInfoEntity collection)
+        public ActionResult CreateUser(List< UserInfoEntity> collection)
         {
 
             // TODO: Add insert logic here
             try
             {
-                if (UserInfoDAL.Instance.Get(collection.F_UserId) != null)
+                if (UserInfoDAL.Instance.Get(collection[0].F_UserId) != null)
                     return Content("Warning", "这个用户名已经注册啦qwq，请换一个吧");
 
-                var info = UserInfoDAL.Instance.Create(collection);
+                var info = UserInfoDAL.Instance.Create(collection[0]);
                 return Content("Success", info.ToString());
             }
             catch (Exception ex)
