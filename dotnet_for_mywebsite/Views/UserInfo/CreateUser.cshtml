@@ -10,20 +10,15 @@
 <link rel="stylesheet" type="text/css" href="~/css/sweetalert.css">
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="~/js/main.js"></script>
-<script scr="">
-    swal({
-        showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "确定",
-        closeOnConfirm: true
-    },
+<script >
+   
     function submitForm() {
         if (document.getElementById("F_UserId").value == "" || document.getElementById("F_UserName").value == "" || document.getElementById("F_Psd").value == "") {
-            swal("输入的值有误，请检查","请输入有效值哦","warning");
+            swal("输入的值有误，请检查", "请输入有效值哦", "warning");
             return false;
         }
         if (document.getElementById("F_Psd").value != document.getElementById("F_RePsw").value) {
-            swal("两次输入的密码不一致！","请确认,并且重新输入！","error");
+            swal("两次输入的密码不一致！", "请确认,并且重新输入密码！", "error");
             return false;
         }
         //alert("你再怎么提交也没有用哇qwq");
@@ -33,101 +28,97 @@
         //postData["F_Description"] = editor.$txt.html();//取备注信息
         $.ajax({
             type: "GET",
-            url: "/UserInfoController/CreateUser",
+            url: "/UserInfo/CreateUser",
             data: postData,
             success: function (data) {
                 alert(data);
                 alert(JSON.stringify(data));
-                if (data["Message"] == "Success")
-                {
-                    alert("信息已经提交，3G大人正在审核......或许，可以加QQ去骚扰他给他动力？");
+                if (data["Message"] == "Success") {
+                    swal("信息已经提交"+data["Message"], "3G大人正在审核......或许，可以加QQ去骚扰他给他动力？", "success");
 
                 }
 
                 else
-                    alert("OPS，出了点错误" + data["Message"]);
+                    swal("OPS，出了点错误", data["Message"], "info");
 
                 $.currentWindow().$("#form1").trigger("reloadForm");
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.status + " || " + XMLHttpRequest.readyState + " || " + textStatus);
+                swal("出现错误", XMLHttpRequest.status + " || " + XMLHttpRequest.readyState + " || " + textStatus, "error");
             }
 
         })
-
-
     }
 
 
-
-    //收集表单数据为一个数组
-    $.request = function (name) {
-        var search = location.search.slice(1);
-        var arr = search.split("&");
-        for (var i = 0; i < arr.length; i++) {
-            var ar = arr[i].split("=");
-            if (ar[0] == name) {
-                if (unescape(ar[1]) == 'undefined') {
-                    return "";
-                } else {
-                    return unescape(ar[1]);
-                }
-            }
-        }
-        return "";
-    }
-    var formdate = $("#form1").value();
-    $.fn.formSerialize = function (formdate) {
-        var element = $(this);
-        if (!!formdate) {
-            for (var key in formdate) {
-                var $id = element.find('#' + key);
-                var value = $.trim(formdate[key]).replace(/&nbsp;/g, '');
-                var type = $id.attr('type');
-                if ($id.hasClass("select2-hidden-accessible")) {
-                    type = "select";
-                }
-                switch (type) {
-                    case "checkbox":
-                        if (value == "true") {
-                            $id.attr("checked", 'checked');
-                        } else {
-                            $id.removeAttr("checked");
-                        }
-                        break;
-                    case "select":
-                        $id.val(value).trigger("change");
-                        break;
-                    default:
-                        $id.val(value);
-                        break;
-                }
-            };
-            return false;
-        }
-        var postdata = {};
-        element.find('input,select,textarea').each(function (r) {
-            var $this = $(this);
-            var id = $this.attr('id');
-            var type = $this.attr('type');
-            switch (type) {
-                case "checkbox":
-                    postdata[id] = $this.is(":checked");
-                    break;
-                default:
-                    var value = $this.val() == "" ? "&nbsp;" : $this.val();
-                    if (!$.request("keyValue")) {
-                        value = value.replace(/&nbsp;/g, '');
-                    }
-                    postdata[id] = value;
-                    break;
-            }
-        });
-        if ($('[name=__RequestVerificationToken]').length > 0) {
-            postdata["__RequestVerificationToken"] = $('[name=__RequestVerificationToken]').val();
-        }
-        return postdata;
-    };
+    ////收集表单数据为一个数组
+    //$.request = function (name) {
+    //    var search = location.search.slice(1);
+    //    var arr = search.split("&");
+    //    for (var i = 0; i < arr.length; i++) {
+    //        var ar = arr[i].split("=");
+    //        if (ar[0] == name) {
+    //            if (unescape(ar[1]) == 'undefined') {
+    //                return "";
+    //            } else {
+    //                return unescape(ar[1]);
+    //            }
+    //        }
+    //    }
+    //    return "";
+    //}
+    //var formdate = $("#form1").value();
+    //$.fn.formSerialize = function (formdate) {
+    //    var element = $(this);
+    //    if (!!formdate) {
+    //        for (var key in formdate) {
+    //            var $id = element.find('#' + key);
+    //            var value = $.trim(formdate[key]).replace(/&nbsp;/g, '');
+    //            var type = $id.attr('type');
+    //            if ($id.hasClass("select2-hidden-accessible")) {
+    //                type = "select";
+    //            }
+    //            switch (type) {
+    //                case "checkbox":
+    //                    if (value == "true") {
+    //                        $id.attr("checked", 'checked');
+    //                    } else {
+    //                        $id.removeAttr("checked");
+    //                    }
+    //                    break;
+    //                case "select":
+    //                    $id.val(value).trigger("change");
+    //                    break;
+    //                default:
+    //                    $id.val(value);
+    //                    break;
+    //            }
+    //        };
+    //        return false;
+    //    }
+    //    var postdata = {};
+    //    element.find('input,select,textarea').each(function (r) {
+    //        var $this = $(this);
+    //        var id = $this.attr('id');
+    //        var type = $this.attr('type');
+    //        switch (type) {
+    //            case "checkbox":
+    //                postdata[id] = $this.is(":checked");
+    //                break;
+    //            default:
+    //                var value = $this.val() == "" ? "&nbsp;" : $this.val();
+    //                if (!$.request("keyValue")) {
+    //                    value = value.replace(/&nbsp;/g, '');
+    //                }
+    //                postdata[id] = value;
+    //                break;
+    //        }
+    //    });
+    //    if ($('[name=__RequestVerificationToken]').length > 0) {
+    //        postdata["__RequestVerificationToken"] = $('[name=__RequestVerificationToken]').val();
+    //    }
+    //    return postdata;
+    //};
 </script>
 <h4>创建新用户（其实也就让发发消息）</h4>
 <body>
@@ -137,12 +128,12 @@
             <form id="form1">
                 <span style="text-decoration:line-through;">透露一下你的信息吧</span>
                 <div class="form-group">
-                    <label asp-for="F_UserId" class="control-label"></label>
+                    <label asp-for="F_UserId" class="control-label">用户名</label>
                     <input id="F_UserId" asp-for="F_UserId" class="form-control" />
                     <span asp-validation-for="F_UserId" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="F_UserName" class="control-label"></label>
+                    <label asp-for="F_UserName" class="control-label">昵称</label>
                     <input id="F_UserName" asp-for="F_UserName" class="form-control" />
                     <span asp-validation-for="F_UserName" class="text-danger"></span>
                 </div>
@@ -157,23 +148,23 @@
                     <span class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="F_Contact" class="control-label"></label>
+                    <label asp-for="F_Contact" class="control-label">联系方式（QQ？）</label>
                     <input id="F_Contact" asp-for="F_Contact" class="form-control" />
                     <span asp-validation-for="F_Contact" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="F_Mail" class="control-label"></label>
+                    <label asp-for="F_Mail" class="control-label">Email</label>
                     <input id="F_Mail" asp-for="F_Mail" class="form-control" />
                     <span asp-validation-for="F_Mail" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="button" value="Create" class="btn btn-default" onclick="submitForm()" />
+                    <input type="button" value="提交" class="btn btn-default" onclick="submitForm()" />
                 </div>
             </form>
         </div>
     </div>
 
     <div>
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="close">Back to List</a>
     </div>
 </body>

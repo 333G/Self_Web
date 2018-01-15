@@ -23,6 +23,10 @@ namespace dotnet_for_mywebsite.Controllers
         {
             return View();
         }
+        public ActionResult close()
+        {
+            return Content("Close", "关闭页面");
+        }
 
         // GET: UserInfo/Create
         public ActionResult CreateUser()
