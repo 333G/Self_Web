@@ -35,24 +35,43 @@ namespace dotnet_for_mywebsite.Controllers
         }
 
         // POST: UserInfo/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateUser(List< UserInfoEntity> collection)
+        [HttpGet]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(List< UserInfoEntity> collection)
         {
 
             // TODO: Add insert logic here
             try
             {
                 if (UserInfoDAL.Instance.Get(collection[0].F_UserId) != null)
-                    return Content("Warning", "这个用户名已经注册啦qwq，请换一个吧");
+                    return Content("Warning这个用户名已经注册啦qwq，请换一个吧");
 
                 var info = UserInfoDAL.Instance.Create(collection[0]);
-                return Content("Success", info.ToString());
+                return Json(info.ToString());
             }
             catch (Exception ex)
             {
-                SerializableError error = new SerializableError();
-                return Content("Error", ex.ToString());
+                // return Content("Error", ex.ToString());
+                return Json(ex);
+            }
+        }
+
+        
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(UserInfoEntity collection)
+        {
+            try
+            {
+                if (UserInfoDAL.Instance.Get(collection.F_UserId) != null)
+                    return Content("Warning这个用户名已经注册啦qwq，请换一个吧");
+
+                var info = UserInfoDAL.Instance.Create(collection);
+                return Json(info.ToString());
+            }
+            catch (Exception ex)
+            {
+                return Json(ex);
             }
         }
 

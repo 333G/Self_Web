@@ -3,13 +3,13 @@ C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\bin\Debug\
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\bin\Debug\netcoreapp2.0\dotnet_for_mywebsite.runtimeconfig.dev.json
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\bin\Debug\netcoreapp2.0\dotnet_for_mywebsite.dll
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\bin\Debug\netcoreapp2.0\dotnet_for_mywebsite.pdb
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\bin\Debug\netcoreapp2.0\SelfWeb.DAL.dll
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\bin\Debug\netcoreapp2.0\SelfWeb.Entity.dll
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\bin\Debug\netcoreapp2.0\SelfWeb.Entity.pdb
+C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\bin\Debug\netcoreapp2.0\SelfWeb.DAL.pdb
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\obj\Debug\netcoreapp2.0\dotnet_for_mywebsite.csprojResolveAssemblyReference.cache
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\obj\Debug\netcoreapp2.0\dotnet_for_mywebsite.csproj.CoreCompileInputs.cache
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\obj\Debug\netcoreapp2.0\dotnet_for_mywebsite.AssemblyInfoInputs.cache
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\obj\Debug\netcoreapp2.0\dotnet_for_mywebsite.AssemblyInfo.cs
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\obj\Debug\netcoreapp2.0\dotnet_for_mywebsite.dll
 C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\obj\Debug\netcoreapp2.0\dotnet_for_mywebsite.pdb
-C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\bin\Debug\netcoreapp2.0\SelfWeb.DAL.dll
-C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\bin\Debug\netcoreapp2.0\SelfWeb.Entity.dll
-C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\bin\Debug\netcoreapp2.0\SelfWeb.Entity.pdb
-C:\Users\HK\Desktop\html5up-prologue_3G\Self_Web\dotnet_for_mywebsite\bin\Debug\netcoreapp2.0\SelfWeb.DAL.pdb

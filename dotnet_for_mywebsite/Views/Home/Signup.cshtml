@@ -27,8 +27,8 @@
            alert(JSON.stringify(postData));
         //postData["F_Description"] = editor.$txt.html();//取备注信息
         $.ajax({   
-            type:"GET",           
-            url: "/UserInfoModelsController/Create",
+            type:"POST",           
+            url: "/UserInfo/Create",
             data: postData ,
             dataType:"json",
             success: function (data) {
