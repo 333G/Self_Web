@@ -8,16 +8,12 @@ using System.Linq.Expressions;
 
 namespace SelfWeb.DAL.UserInfoDAL
 {
-    public partial class UserInfoDAL : DbContext
+    public partial class UserInfoDAL
     {
+        DotNetCoreDbContext dotNetCoreDbContext = new DotNetCoreDbContext();
         #region 单例模式
         private static UserInfoDAL instance;
         private static object _lock = new object();
-
-        private UserInfoDAL()
-        {
-        }
-
         public static UserInfoDAL Instance
         {
             get
@@ -38,26 +34,41 @@ namespace SelfWeb.DAL.UserInfoDAL
         #endregion 单例模式
         public object Create(UserInfoEntity model)
         {
-            Add(model);
-            return SaveChanges();
+
+            dotNetCoreDbContext.Add(model);
+            return dotNetCoreDbContext.SaveChanges();
+
         }
 
         public object Delete(UserInfoEntity model)
         {
-            Remove(model);
-            return SaveChanges();
+            //using (var db = new DotNetCoreDbContext())
+            //{
+            //    db.Remove(model);
+            //    return db.SaveChanges();
+            //}
+            dotNetCoreDbContext.Remove(model);
+            return dotNetCoreDbContext.SaveChanges();
         }
 
         public object Get(string UserId)
         {
-
-            return this.Find(typeof(UserInfoEntity), UserId);
+            //using (var db = new DotNetCoreDbContext())
+            //{
+            //    return db.Userinfo.Find(typeof(UserInfoEntity), UserId);
+            //}
+            return dotNetCoreDbContext.Find(typeof(UserInfoEntity), UserId);
         }
 
         public object Change(UserInfoEntity model)
         {
-            this.Update<UserInfoEntity>(model);
-            return SaveChanges();
+            //using (var db = new DotNetCoreDbContext())
+            //{
+            //    db.Update<UserInfoEntity>(model);
+            //    return db.SaveChanges();
+            //}
+            dotNetCoreDbContext.Update<UserInfoEntity>(model);
+            return dotNetCoreDbContext.SaveChanges();
         }
     }
 }

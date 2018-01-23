@@ -13,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using DotNetCore20.DAL.DbContext;
 using DotNetCore20.DAL;
-
+using SelfWeb.DAL.UserInfoDAL;
 
 namespace dotnet_for_mywebsite
 {
@@ -31,8 +31,8 @@ namespace dotnet_for_mywebsite
         {
             //自定义数据库连接字符串
             services.AddDbContext<DotNetCoreDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DotNetCoreConnection")));
-
+            //options.UseMySQL(Configuration.GetConnectionString("NormalConnection")));
+            options.UseMySQL("server=127.0.0.1;database=mydb;uid=root;pwd=defaultpassword;"));
             services.AddMvc();
 
         }
@@ -47,7 +47,7 @@ namespace dotnet_for_mywebsite
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Shared/Error");
             }
 
             app.UseStaticFiles();

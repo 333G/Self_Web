@@ -31,15 +31,15 @@
             url: "/UserInfo/Create",
             data: postData ,
             success: function (data) {
-                alert(data);
-                alert(JSON.stringify(data));
+                //alert(data);
+                //alert(JSON.stringify(data));
                 if (data["Message"] == "Success") {
                     swal("信息已经提交"+data["Message"], "3G大人正在审核......或许，可以加QQ去骚扰他给他动力？", "success");
 
                 }
 
                 else
-                    swal("OPS，出了点错误", data["Message"], "info");
+                    swal("OPS，出了点状况QAQ", data["Message"], "info");
 
                 $.currentWindow().$("#form1").trigger("reloadForm");
             },
