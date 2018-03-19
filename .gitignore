@@ -6,3 +6,10 @@
 .vs/dotNetcore_for_selfweb/v15/Server/sqlite3/storage.ide
 *.ide
 *.ide
+.vs/dotNetcore_for_selfweb/v15/.suo
+.vs/dotNetcore_for_selfweb/v15/.suo
+dotnet_for_mywebsite/bin/Debug/netcoreapp2.0/dotnet_for_mywebsite.dll
+dotnet_for_mywebsite/bin/Debug/netcoreapp2.0/dotnet_for_mywebsite.pdb
+*.dll
+*.pdb
+*.cache

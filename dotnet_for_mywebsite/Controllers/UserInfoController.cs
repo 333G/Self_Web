@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using dotNetcore_for_selfweb.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using dotNetcore_for_selfweb.Entity;
-using SelfWeb.DAL;
 using SelfWeb.DAL.UserInfoDAL;
+using System;
+using System.Collections.Generic;
 
 namespace dotnet_for_mywebsite.Controllers
 {
@@ -23,6 +20,7 @@ namespace dotnet_for_mywebsite.Controllers
         {
             return View();
         }
+
         public ActionResult close()
         {
             return Content("Close", "关闭页面");
@@ -37,9 +35,8 @@ namespace dotnet_for_mywebsite.Controllers
         // POST: UserInfo/Create
         [HttpGet]
         //[ValidateAntiForgeryToken]
-        public ActionResult Create(List< UserInfoEntity> collection)
+        public ActionResult Create(List<UserInfoEntity> collection)
         {
-
             // TODO: Add insert logic here
             try
             {
@@ -56,7 +53,6 @@ namespace dotnet_for_mywebsite.Controllers
             }
         }
 
-        
         [HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult Create(UserInfoEntity collection)

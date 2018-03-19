@@ -1,19 +1,17 @@
 ﻿using dotNetcore_for_selfweb.Entity;
 using DotNetCore20.DAL.DbContext;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 
 namespace SelfWeb.DAL.UserInfoDAL
 {
     public partial class UserInfoDAL
     {
-        DotNetCoreDbContext dotNetCoreDbContext = new DotNetCoreDbContext();
+        private DotNetCoreDbContext dotNetCoreDbContext = new DotNetCoreDbContext();
+
         #region 单例模式
+
         private static UserInfoDAL instance;
         private static object _lock = new object();
+
         public static UserInfoDAL Instance
         {
             get
@@ -31,13 +29,13 @@ namespace SelfWeb.DAL.UserInfoDAL
                 return instance;
             }
         }
+
         #endregion 单例模式
+
         public object Create(UserInfoEntity model)
         {
-
             dotNetCoreDbContext.Add(model);
             return dotNetCoreDbContext.SaveChanges();
-
         }
 
         public object Delete(UserInfoEntity model)
