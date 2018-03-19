@@ -1,3 +1,8 @@
 
 *.ide-shm
 *.ide-wal
+.vs/dotNetcore_for_selfweb/v15/.suo
+.vs/dotNetcore_for_selfweb/v15/Server/sqlite3/storage.ide
+.vs/dotNetcore_for_selfweb/v15/Server/sqlite3/storage.ide
+*.ide
+*.ide
